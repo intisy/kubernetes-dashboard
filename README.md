@@ -2,12 +2,12 @@ Install
 ---------
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/HEAD/recommended.yaml
+curl -fsSL https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/HEAD/run.sh | bash -s install
 ```
 
 Deinstall
 ---------
 
 ```
-curl -fsSL https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/HEAD/deinstall.sh | bash -s
+curl -fsSL https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/HEAD/run.sh | bash -s deinstall
 ```
