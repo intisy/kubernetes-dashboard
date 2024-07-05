@@ -1,6 +1,7 @@
 #!/bin/bash
 
 kubectl delete deployment dashboard-metrics-scraper -n kubernetes-dashboard --grace-period=0 --force
+kubectl delete pods -l app=kubernetes-dashboard --grace-period=0 --force
 kubectl delete service dashboard-metrics-scraper -n kubernetes-dashboard --grace-period=0 --force
 kubectl delete deployment kubernetes-dashboard -n kubernetes-dashboard --grace-period=0 --force
 kubectl delete clusterrolebinding kubernetes-dashboard  --grace-period=0 --force
