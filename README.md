@@ -2,12 +2,12 @@ Install
 ---------
 
 ```
-curl -fsSL https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/HEAD/run.sh | bash -s install
+bash kubernetes-center/run.sh repo=mysql-kubernetes action=install pat=$PAT
 ```
 
 Deinstall
 ---------
 
 ```
-curl -fsSL https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/HEAD/run.sh | bash -s deinstall
+bash kubernetes-center/run.sh repo=mysql-kubernetes action=deinstall pat=$PAT
 ```
