@@ -1,18 +1,8 @@
 #!/bin/bash
 
-sha=$1
+args=$@
+pat=$1
+sha=$2
 
-wait_until_ready() {
-  url=$1
-  substring1="The requested URL returned error"
-  substring2="Could not resolve host: raw.githubusercontent.com"
-  output=$(curl -fsSL $url 2>&1)
-  if [[ $output =~ $substring1 || $output =~ $substring2 ]]; then
-    sleep 1
-    wait_until_ready
-  fi
-}
-wait_until_ready https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/$sha/scripts/deinstall.sh
-curl -fsSL https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/$sha/scripts/deinstall.sh | bash -s
-wait_until_ready https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/$sha/yaml/recommended.yaml
-kubectl apply -f https://raw.githubusercontent.com/WildePizza/kubernetes-dashboard/$sha/yaml/recommended.yaml
+sudo bash kubernetes-center/run.sh repo=kubernetes-dashboard raw_args="$args" action=deinstall pat=$pat sha=$sha
+sudo bash kubernetes-center/run.sh repo=kubernetes-dashboard action=recommended pat=$pat sha=$sha yaml=true
